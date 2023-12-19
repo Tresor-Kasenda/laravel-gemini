@@ -1,0 +1,46 @@
+{
+  "name": "scott/laravel-gemini",
+  "description": "A Laravel package for Gemini API",
+  "keywords": [
+    "laravel",
+    "gemini",
+    "google"
+  ],
+  "license": "MIT",
+  "type": "library",
+  "autoload": {
+    "psr-4": {
+      "Scott\\LaravelGemini\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "role": "Developer",
+      "name": "Tresor-Kasenda",
+      "email": "scotttresor@gmail.com"
+    }
+  ],
+  "require-dev": {
+    "pestphp/pest": "^2.28",
+    "orchestra/testbench": "*",
+    "laravel/pint": "^1.13",
+    "phpstan/phpstan": "^1.10"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Scott\\LaravelGemini\\LaravelGeminiServiceProvider"
+      ],
+      "aliases": [
+        "Scott\\LaravelGemini\\Facades\\LaravelGeminiFacade"
+      ]
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "config": {
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
+  }
+}

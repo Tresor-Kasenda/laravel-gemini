@@ -1,0 +1,16 @@
+name: Laravel Gemini CI
+on:
+  push:
+    branches:
+      - master
+jobs:
+
+  linting:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      - name: Install Pint
+        run: composer require laravel/pint --dev
+      - name: Run Linting
+        run: ./vendor/bin/pint
