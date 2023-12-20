@@ -13,22 +13,13 @@ return [
     'api_key' => env('GOOGLE_GEMINI_API_KEY', ''),
 
     /*
-        |--------------------------------------------------------------------------
-        | Google Gemini API URL
-        |--------------------------------------------------------------------------
-        | The URL to the Google Gemini API endpoint to use. This is useful if you want
-        | to use a different endpoint for testing purposes. The default is the production
-        */
-    'url' => env('GOOGLE_GEMINI_URL', 'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent'),
-
-    /*
     |--------------------------------------------------------------------------
-    | Google Gemini API Model
+    | Google Gemini API URL
     |--------------------------------------------------------------------------
-    | The model to use for generating content. The default is the production model.
-    | You can use the 'gemini-pro' model for testing purposes. You can also use the 'gemini-pro' model
+    | The URL to the Google Gemini API endpoint to use. This is useful if you want
+    | to use a different endpoint for testing purposes. The default is the production
     */
-    'model' => env('GOOGLE_GEMINI_MODEL', 'gemini-pro'),
+    'url' => env('GOOGLE_GEMINI_URL', 'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent'),
 
     /*
     |--------------------------------------------------------------------------
@@ -66,5 +57,4 @@ return [
     | testing purposes. You can also use the 'gemini-pro' model for testing purposes.
     */
     'candidate_count' => env('GOOGLE_GEMINI_CANDIDATE_COUNT', 1),
-
 ];
