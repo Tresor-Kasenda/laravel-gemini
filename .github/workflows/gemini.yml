@@ -25,14 +25,3 @@ jobs:
         run: composer require phpstan/phpstan --dev
       - name: Run PHPStan Setup
         run: ./vendor/bin/phpstan analyse
-
-  generate-tags:
-    runs-on: ubuntu-latest
-    needs: phpstan-setup
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-      - name: Generate tag
-        run: |
-          git tag -a v$(date +%Y%m%d%H%M%S) -m "Generated tag from GitHub Action"
-          git push --tags
