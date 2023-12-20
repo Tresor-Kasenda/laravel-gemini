@@ -6,6 +6,15 @@
 
 This package provides a simple way to use the [Gemini API](https://docs.gemini.com/rest-api/) in your Laravel
 applications.
+The Laravel Gemini package provides a convenient interface for interacting with the Gemini API to generate text based on
+a given prompt.
+This documentation outlines how to use the `LaravelGemini` class, its methods, and configuration.
+
+## Get Started
+
+> **Requires [PHP 8.1+](https://php.net/releases/)**
+
+First, install OpenAI via the [Composer](https://getcomposer.org/) package manager:
 
 ## Installation
 
@@ -13,6 +22,43 @@ You can install the package via composer:
 
 ```bash
 composer require scott/laravel-gemini
+```
+
+## Configuration
+
+The Laravel Gemini package can be configured using environment variables. The following environment variables are
+available:
+
+This will create a `config/laravel-gemini.php` configuration file in your project, which you can modify to your needs
+using environment variables.
+Blank environment variables for the OpenAI API key and organization id are already appended to your `.env` file.
+
+```env
+GOOGLE_GEMINI_API_KEY=
+```
+
+You can publish the config file with:
+
+```bash
+php artisan vendor:publish --provider="Scott\LaravelGemini\LaravelGeminiServiceProvider" --tag="laravel-gemini-config"
+```
+
+## Usage
+
+To use the Laravel Gemini package for text generation, follow these steps:
+
+1. **Create a new instance of LaravelGemini:**
+
+```php
+use Scott\LaravelGemini\LaravelGemini;
+$prompt = new LaravelGemini();
+echo $prompt;
+```
+
+2. **Call the `generateText` method:**
+
+```php
+$response = $prompt->generateText('I am a web developer');
 ```
 
 ## Testing

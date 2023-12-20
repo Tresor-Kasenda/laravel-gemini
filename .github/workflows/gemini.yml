@@ -14,3 +14,15 @@ jobs:
         run: composer require laravel/pint --dev
       - name: Run Linting
         run: ./vendor/bin/pint
+
+  phpstan-setup:
+    runs-on: ubuntu-latest
+    needs: linting
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      - name: Install PHPStan
+        run: composer require phpstan/phpstan --dev
+      - name: Run PHPStan Setup
+        run: ./vendor/bin/phpstan analyse
+
