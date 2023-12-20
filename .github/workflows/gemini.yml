@@ -34,8 +34,5 @@ jobs:
         uses: actions/checkout@v2
       - name: Generate tag
         run: |
-          git config --global user.email ${{ github.event.commits[0].author.email }}" 
-          git config --global user.name ${{ github.actor }}
-          echo "Commit: ${{ github.sha }}"
           git tag -a v$(date +%Y%m%d%H%M%S) -m "Generated tag from GitHub Action"
           git push --tags
