@@ -52,13 +52,13 @@ To use the Laravel Gemini package for text generation, follow these steps:
 ```php
 use Scott\LaravelGemini\LaravelGemini;
 $prompt = new LaravelGemini();
-echo $prompt;
 ```
 
 2. **Call the `generateText` method:**
 
 ```php
 $response = $prompt->generateText('I am a web developer');
+echo $response;
 ```
 
 ## Testing
