@@ -31,7 +31,7 @@ available:
 
 This will create a `config/laravel-gemini.php` configuration file in your project, which you can modify to your needs
 using environment variables.
-Blank environment variables for the OpenAI API key and organization id are already appended to your `.env` file.
+Blank environment variables for the Google gemini API key and organization id are already appended to your `.env` file.
 
 ```env
 GOOGLE_GEMINI_API_KEY=
