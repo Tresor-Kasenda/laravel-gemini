@@ -11,8 +11,6 @@ trait HasSetConfiguration
      */
     protected array $messages = [];
 
-    protected string $models;
-
     protected string|int $temperature;
 
     protected string|int $maxOutputTokens;
@@ -56,17 +54,17 @@ trait HasSetConfiguration
         return $this;
     }
 
-    public function maxOutputTokens()
+    public function maxOutputTokens(): string
     {
         return $this->maxOutputTokens ?? config('laravel-gemini.max_output_tokens');
     }
 
-    public function topK()
+    public function topK(): string
     {
         return $this->topK ?? config('laravel-gemini.top_k');
     }
 
-    public function topP()
+    public function topP(): string
     {
         return $this->topP ?? config('laravel-gemini.top_p');
     }
@@ -76,18 +74,6 @@ trait HasSetConfiguration
         $this->topK = $topK;
 
         return $this;
-    }
-
-    public function setModel(string $model): static
-    {
-        $this->models = $model;
-
-        return $this;
-    }
-
-    public function getModel(): string
-    {
-        return $this->models;
     }
 
     public function temperature(): string
