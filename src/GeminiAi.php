@@ -14,6 +14,18 @@ class GeminiAi
 {
     use HasSetConfiguration;
 
+    protected Client $client;
+
+    public function __construct(protected string $model)
+    {
+        $this->client = new Client();
+    }
+
+    public static function models(string $model): self
+    {
+        return new self($model);
+    }
+
     /**
      * @param string $prompt
      * @return array<string, mixed>
@@ -37,12 +49,11 @@ class GeminiAi
      */
     protected function makeApiRequest(string $url, string $requestData, string|null $base64Image): array
     {
-        $client = new Client();
-        $response = $client->post($url.$this->getModel().":generateContent", [
+        $response = $this->client->post($url.$this->model.":generateContent", [
             'query' => ['key' => config('laravel-gemini.api_key')],
             'headers' => ['Content-Type' => 'application/json'],
             'json' => [
-                'model' => $this->getModel(),
+                'model' => $this->model,
                 'contents' => [['parts' => [
                     ['text' => $requestData],
                     [
