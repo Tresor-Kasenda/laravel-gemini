@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Scott\LaravelGemini;
 
 use Illuminate\Support\ServiceProvider;
+use Scott\LaravelGemini\Facades\LaravelGeminiFacade;
 
 class LaravelGeminiServiceProvider extends ServiceProvider
 {
@@ -19,6 +20,6 @@ class LaravelGeminiServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(__DIR__.'/../config/laravel-gemini.php', 'laravel-gemini');
 
-        $this->app->singleton(LaravelGemini::class, fn () => new LaravelGemini());
+        $this->app->singleton(LaravelGeminiFacade::class, fn () => new LaravelGemini());
     }
 }

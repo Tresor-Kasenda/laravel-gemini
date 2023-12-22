@@ -57,7 +57,9 @@ $prompt = new LaravelGemini();
 2. **Call the `generateText` method:**
 
 ```php
-$response = $prompt->generateText('I am a web developer');
+$response = $prompt
+->setModel('gemini-pro')
+->generateText('I am a web developer');
 echo $response;
 ```
 

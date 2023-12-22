@@ -19,7 +19,7 @@ return [
     | The URL to the Google Gemini API endpoint to use. This is useful if you want
     | to use a different endpoint for testing purposes. The default is the production
     */
-    'url' => env('GOOGLE_GEMINI_URL', 'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent'),
+    'url' => env('GOOGLE_GEMINI_URL', 'https://generativelanguage.googleapis.com/v1beta/models/'),
 
     /*
     |--------------------------------------------------------------------------
@@ -57,4 +57,7 @@ return [
     | testing purposes. You can also use the 'gemini-pro' model for testing purposes.
     */
     'candidate_count' => env('GOOGLE_GEMINI_CANDIDATE_COUNT', 1),
+
+
+    'mime_type' => env('GOOGLE_GEMINI_MIME_TYPE', 'image/jpeg'),
 ];
