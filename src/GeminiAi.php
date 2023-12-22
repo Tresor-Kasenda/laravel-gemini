@@ -10,7 +10,7 @@ use InvalidArgumentException;
 use Scott\LaravelGemini\Contracts\HasSetConfiguration;
 use Scott\LaravelGemini\Exceptions\InvalidUrlException;
 
-class LaravelGemini
+class GeminiAi
 {
     use HasSetConfiguration;
 
@@ -22,7 +22,7 @@ class LaravelGemini
     public function generateText(string $prompt): array
     {
         $url = config('laravel-gemini.url');
-        if (!is_string($url)) {
+        if ( ! is_string($url)) {
             throw new InvalidUrlException("Invalid URL configuration.");
         }
         return $this->makeApiRequest($url, $prompt);
@@ -38,7 +38,7 @@ class LaravelGemini
     protected function makeApiRequest(string $url, string $requestData, string|null $base64Image): array
     {
         $client = new Client();
-        $response = $client->post($url . $this->getModel() . ":generateContent", [
+        $response = $client->post($url.$this->getModel().":generateContent", [
             'query' => ['key' => config('laravel-gemini.api_key')],
             'headers' => ['Content-Type' => 'application/json'],
             'json' => [
@@ -67,7 +67,7 @@ class LaravelGemini
         ]);
 
         $responseContent = json_decode($response->getBody()->getContents(), true);
-        if (!is_array($responseContent) || !isset($responseContent['candidates'][0]['content'])) {
+        if ( ! is_array($responseContent) || ! isset($responseContent['candidates'][0]['content'])) {
             throw new InvalidArgumentException('Invalid response format.');
         }
         $content = $responseContent['candidates'][0]['content'];
@@ -76,16 +76,6 @@ class LaravelGemini
             'model_role' => $content['role'],
             'model_prompt' => $content['parts'][0]['text']
         ];
-    }
-
-    public function getModel(): string
-    {
-        return $this->models;
-    }
-
-    public function temperature(): string
-    {
-        return $this->temperature ?? config('laravel-gemini.temperature');
     }
 
     public function generateTextWithImages(string $prompt, string $imagePath)

@@ -1,6 +1,6 @@
 {
   "name": "scott/laravel-gemini",
-  "description": "A Laravel package for Gemini API",
+  "description": "A php package for Gemini ai",
   "license": "MIT",
   "type": "library",
   "authors": [
@@ -27,10 +27,10 @@
   "extra": {
     "laravel": {
       "providers": [
-        "Scott\\LaravelGemini\\LaravelGeminiServiceProvider"
+        "GeminiServiceProvider"
       ],
       "aliases": [
-        "Scott\\LaravelGemini\\Facades\\LaravelGeminiFacade"
+        "GeminiFacade"
       ]
     }
   },

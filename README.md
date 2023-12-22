@@ -47,19 +47,19 @@ php artisan vendor:publish --provider="Scott\LaravelGemini\LaravelGeminiServiceP
 
 To use the Laravel Gemini package for text generation, follow these steps:
 
-1. **Create a new instance of LaravelGemini:**
+1. **Create a new instance of Gemini AI:**
 
 ```php
-use Scott\LaravelGemini\LaravelGemini;
-$prompt = new LaravelGemini();
+use Scott\LaravelGemini\GeminiAi;
+$prompt = new GeminiAi();
 ```
 
 2. **Call the `generateText` method:**
 
 ```php
 $response = $prompt
-->setModel('gemini-pro')
-->generateText('I am a web developer');
+    ->setModel('gemini-pro')
+    ->generateText('I am a web developer');
 echo $response;
 ```
 

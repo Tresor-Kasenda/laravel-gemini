@@ -5,15 +5,15 @@ declare(strict_types=1);
 namespace Scott\LaravelGemini\Facades;
 
 use Illuminate\Support\Facades\Facade;
-use Scott\LaravelGemini\LaravelGemini;
+use Scott\LaravelGemini\GeminiAi;
 
-class LaravelGeminiFacade extends Facade
+class GeminiFacade extends Facade
 {
     /**
      * @return class-string
      */
     protected static function getFacadeAccessor(): string
     {
-        return LaravelGemini::class;
+        return GeminiAi::class;
     }
 }

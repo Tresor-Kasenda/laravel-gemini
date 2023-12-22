@@ -1,4 +1,4 @@
-name: Laravel Gemini CI
+name: Laravel GeminiAi CI
 on:
   push:
     branches:

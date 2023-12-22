@@ -84,4 +84,14 @@ trait HasSetConfiguration
 
         return $this;
     }
+
+    public function getModel(): string
+    {
+        return $this->models;
+    }
+
+    public function temperature(): string
+    {
+        return $this->temperature ?? config('laravel-gemini.temperature');
+    }
 }
